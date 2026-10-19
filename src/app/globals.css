@@ -1,6 +1,6 @@
 /* ==========================================================================
    BudgetPhoneWala Accessories: design system
-   Light and dark (follows the device setting). Cool neutrals, one brand red.
+   Light theme only. Cool neutrals, one brand red.
    Shapes: buttons and chips are full pills, cards and panels use --radius.
    ========================================================================== */
 
@@ -39,30 +39,6 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111113;
-    --surface: #18181b;
-    --surface-2: #1f1f23;
-    --ink: #ededef;
-    --ink-soft: #d4d4d8;
-    --muted: #a1a1aa;
-    --line: #2a2a2f;
-    --line-strong: #3a3a40;
-
-    --accent: #c2343a;
-    --accent-hover: #d6474d;
-    --accent-ink: #f08a8e;
-    --accent-tint: #2a1618;
-    --success: #6fd3a0;
-    --success-tint: #12261c;
-
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
-    --shadow-accent: 0 18px 40px rgba(194, 52, 58, 0.3);
-    color-scheme: dark;
-  }
-}
 
 @media (min-width: 768px) {
   :root {
