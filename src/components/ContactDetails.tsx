@@ -1,4 +1,5 @@
 import {
+  WHATSAPP_ENQUIRY,
   addressLines,
   hasAnyContact,
   hasEmail,
@@ -9,9 +10,6 @@ import {
   whatsappHref,
 } from "@/config/site";
 import { ClockIcon, MailIcon, MessageIcon, PhoneIcon, PinIcon } from "@/components/Icons";
-
-const WHATSAPP_MESSAGE =
-  "Hi BudgetPhoneWala, I would like to know which second-hand smartphones you have available.";
 
 /**
  * Contact details.
@@ -58,11 +56,11 @@ export function ContactDetails() {
             <span className="contact__label">WhatsApp</span>
             <span className="contact__value">
               <a
-                href={whatsappHref(site.contact.whatsapp, WHATSAPP_MESSAGE)}
+                href={whatsappHref(site.contact.whatsapp, WHATSAPP_ENQUIRY)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chat on WhatsApp
+                {site.contact.whatsapp}
               </a>
             </span>
           </span>
@@ -89,7 +87,7 @@ export function ContactDetails() {
             <PinIcon />
           </span>
           <span>
-            <span className="contact__label">Address</span>
+            <span className="contact__label">Store address</span>
             <span className="contact__value">
               {lines.map((line) => (
                 <span key={line}>{line}</span>

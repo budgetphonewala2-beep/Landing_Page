@@ -26,51 +26,55 @@ export const SITE_URL =
 
 export const site = {
   /** Business / brand name. */
-  name: "BudgetPhoneWala",
-
-  /** Legal or trading name, if different from the brand name. */
-  // legalName: "", // TODO: add if registered name differs from "BudgetPhoneWala"
-
-  /** Short tagline used in the header lockup and browser title suffix. */
-  tagline: "Second-hand smartphones, honestly graded",
+  name: "BudgetPhoneWala Accessories",
 
   /**
-   * Short subline shown next to the logo image.
-   * This is the wording printed on the real BudgetPhoneWala badge artwork.
+   * Registered legal name, EXACTLY as it appears on your Razorpay KYC / GST
+   * certificate (proprietor name or firm name). Shown in the footer and on the
+   * Contact page. Leave "" to hide.
    */
-  logoSubline: "Budget Aapka, Phone Hamara",
+  legalName: "", // TODO: legal name exactly as on KYC / GST certificate
+
+  /** GSTIN, if registered. Shown in the footer and on the Contact page. Leave "" to hide. */
+  gstin: "", // TODO: 15-character GSTIN
+
+  /** Short tagline used in the header lockup and browser title suffix. */
+  tagline: "Mobile accessories at honest prices",
+
+  /** Short subline shown next to the logo image. */
+  logoSubline: "Mobile Accessories",
 
   /** Path to the brand logo inside `public/`. */
   logoPath: "/logo.png",
 
   /** One-line description used for SEO meta description and social previews. */
   description:
-    "BudgetPhoneWala sells second-hand smartphones in India with clearly disclosed condition grading and upfront pricing. Browse available models or contact us on WhatsApp.",
+    "BudgetPhoneWala Accessories sells brand-new mobile accessories (chargers, cables, earbuds, phone covers, power banks and smartwatches) from our store in Pandharpur, Maharashtra, with delivery across India.",
 
   /** Country the business operates in. Used in footer + SEO. */
   country: "India",
 
   /** Languages the business supports (customer support / policies). */
-  languages: ["English", "Hindi"],
+  languages: ["English", "Hindi", "Marathi"],
 
   /** Free-text business summary shown in the hero paragraph. */
   heroSummary:
-    "We buy and resell second-hand smartphones that still have plenty of life left in them. Every phone's condition, storage and battery health is shared with you before you pay, so you know exactly what you are getting.",
+    "Chargers, cables, earbuds, covers, power banks and smartwatches. All brand-new, clearly priced, from our Pandharpur store.",
 
   /** Longer About Us copy. Written to be plain and non-claiming. */
   about: {
-    heading: "A straightforward shop for pre-owned phones",
+    heading: "A local mobile accessories store in Pandharpur",
     paragraphs: [
-      "BudgetPhoneWala is an Indian business that resells second-hand smartphones. We source pre-owned phones, check them, and sell them at prices that make sense for people who simply need a reliable phone without paying new-phone money.",
-      "We are not a brand and we do not manufacture anything. What we do is sell phones that have been used before, and be clear about their condition. Every listing states the grade, storage variant and known issues — if a phone has one, you will hear it from us first.",
-      "Orders are confirmed directly with you over WhatsApp or phone, and every sale is accompanied by a proper bill or invoice.",
+      "BudgetPhoneWala Accessories is a retail store in Pandharpur, Maharashtra, that sells everyday mobile accessories: chargers, charging cables, earbuds and earphones, phone covers, power banks and smartwatches.",
+      "Every item we sell is brand-new and comes in its original packaging. We stock accessories for popular Android phones and iPhones, and we help you pick the right charger, cable or cover for your exact phone model.",
+      "You can shop with us in person at our store, or order on WhatsApp or phone and have your accessories delivered. Every order comes with a bill.",
     ],
     /** Short bullet list under the About copy. Keep these factual. */
     points: [
-      "Focused only on pre-owned and second-hand smartphones",
-      "Condition and known issues disclosed before payment",
-      "Orders confirmed personally over WhatsApp or phone",
-      "Invoice provided with every purchase",
+      "Only brand-new, sealed accessories",
+      "Clear price on every product, in Indian Rupees",
+      "Help choosing the right accessory for your phone model",
+      "Bill provided with every purchase",
     ],
   },
 
@@ -82,82 +86,89 @@ export const site = {
    */
   highlights: [
     {
-      title: "Condition disclosed up front",
-      body: "Grade, storage, battery health and any known issue are shared with you before you pay — not after delivery.",
+      title: "Brand-new and sealed",
+      body: "Every accessory is new and comes in its original packaging, exactly as described on this site.",
     },
     {
-      title: "No refurbished-vs-used confusion",
-      body: "We tell you plainly whether a phone was simply used or professionally refurbished, and what was replaced.",
+      title: "Right fit for your phone",
+      body: "Tell us your phone model and we confirm compatibility (connector, wattage, cover size) before you pay.",
     },
     {
-      title: "Straightforward pricing",
-      body: "The price you are quoted is the price you pay. No handling or hidden charges added at checkout.",
+      title: "Clear pricing",
+      body: "The listed price is what you pay for the item. Any delivery charge is told to you before payment.",
     },
     {
-      title: "Direct human contact",
-      body: "You talk to the person who actually handles the order — on WhatsApp or phone — from enquiry to delivery.",
+      title: "Talk to a real person",
+      body: "Order and get support on WhatsApp or phone, directly from the store team.",
     },
     {
-      title: "Invoice with every order",
-      body: "A proper bill or invoice is issued for each purchase for your records.",
+      title: "Bill with every order",
+      body: "A proper bill is issued for each purchase, for your records and for warranty claims.",
     },
     {
-      title: "Returns handled as stated",
-      body: "If a delivered phone is not as described, our return policy applies and we act on it in writing.",
+      title: "Easy replacement",
+      body: "Received a damaged, defective or wrong item? Report it within 7 days of delivery and we replace or refund it.",
     },
+  ],
+
+  /** Product categories the store sells. Shown on the homepage. */
+  categories: [
+    { title: "Chargers", body: "Fast chargers and adapters for Android phones and iPhones." },
+    { title: "Cables", body: "USB Type-C, Lightning and Micro-USB charging and data cables." },
+    { title: "Earbuds & earphones", body: "Wireless earbuds, neckbands and wired earphones." },
+    { title: "Phone covers", body: "Back covers and cases for popular phone models." },
+    { title: "Power banks", body: "Portable power banks in a range of capacities." },
+    { title: "Smartwatches", body: "Smartwatches and fitness bands." },
   ],
 
   /** Contact details. Empty strings are hidden on the website. */
   contact: {
-    // TODO: fill these in before publishing
-    email: "", // e.g. "support@budgetphonewala.com"
-    phone: "", // e.g. "+91 98765 43210"
-    whatsapp: "", // e.g. "+91 98765 43210" (include country code, digits only in the link)
+    email: "budgetphonewala@gmail.com",
+    phone: "+91 98500 07981",
+    whatsapp: "+91 98500 07981",
     /** Full street address. Omit city/pincode if not comfortable publishing. */
     address: {
-      line1: "",
-      line2: "",
-      city: "",
-      state: "",
-      pincode: "",
+      line1: "Chowk, Bhadule Rd, Navi Peth",
+      line2: "Chouphala",
+      city: "Pandharpur",
+      state: "Maharashtra",
+      pincode: "413304",
       country: "India",
     },
-    /** Business hours, e.g. "Mon–Sat, 10:00 AM – 7:00 PM IST". */
-    hours: "",
+    /** Business hours. */
+    hours: "Monday to Sunday, 10:00 AM to 9:00 PM IST",
   },
 
   /** Social profiles. Empty strings are hidden. */
   social: {
-    // instagram: "https://instagram.com/your-handle",
-    // facebook: "https://facebook.com/your-page",
-    // youtube: "",
+    // instagram: "",
   },
 
   /** Legal / policy metadata. */
   legal: {
     /** Date shown on policy pages. Update when you edit a policy. */
-    policiesUpdatedOn: "", // TODO: e.g. "2026-01-15" — leave blank to hide
+    policiesUpdatedOn: "2026-10-19",
     /** Governing law / jurisdiction, if you want it stated publicly. */
-    jurisdiction: "",
+    jurisdiction: "Pandharpur, Maharashtra",
   },
 } as const;
 
 /** Public, statically-safe list of internal links. */
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
   { label: "Products", href: "/#products" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Contact Us", href: "/contact-us" },
 ] as const;
 
 /** Footer policy links. Order matters — Razorpay review looks for these. */
 export const policyLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms-and-conditions" },
-  { label: "Shipping Policy", href: "/shipping-policy" },
+  { label: "Shipping & Delivery Policy", href: "/shipping-policy" },
   { label: "Cancellation & Refund Policy", href: "/cancellation-refund-policy" },
-  { label: "Return Policy", href: "/return-policy" },
+  { label: "Return & Replacement Policy", href: "/return-policy" },
 ] as const;
 
 export type NavLink = (typeof navLinks)[number];
@@ -175,9 +186,9 @@ export const hasPhone = site.contact.phone.trim().length > 0;
 /** True when a WhatsApp number has been filled in. */
 export const hasWhatsApp = site.contact.whatsapp.trim().length > 0;
 
-/** Formats a phone number into a tel: / wa.me link. */
+/** Formats a phone number (with country code) into a tel: link. */
 export function phoneHref(value: string): string {
-  return `tel:+${value.replace(/[^\d]/g, "").replace(/^91(?=\d{10}$)/, "")}`;
+  return `tel:+${value.replace(/[^\d]/g, "")}`;
 }
 
 /** Builds a wa.me deep link with a pre-filled, URL-encoded message. */
@@ -197,3 +208,13 @@ export function addressLines(): string[] {
 /** True when at least one contact channel is configured. */
 export const hasAnyContact =
   hasEmail || hasPhone || hasWhatsApp || addressLines().length > 0;
+
+/** Google Maps search link for the store address. */
+export function mapsHref(): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `Budget Phonewala, ${addressLines().join(", ")}`,
+  )}`;
+}
+
+/** Default WhatsApp message for general enquiries. */
+export const WHATSAPP_ENQUIRY = `Hi ${site.name}, I would like to order a mobile accessory.`;

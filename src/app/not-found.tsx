@@ -9,14 +9,14 @@ export default function NotFound() {
         <h1 className="notfound__title">This page doesn&apos;t exist</h1>
         <p className="notfound__text">
           The page you were looking for has moved or was never here. Head back
-          to the homepage to see our second-hand smartphones, or get in touch
+          to the homepage to see our mobile accessories, or get in touch
           and we&apos;ll point you to the right thing.
         </p>
         <div className="btn-row">
           <Link href="/" className="btn btn--primary">
             Back to homepage
           </Link>
-          <Link href="/#contact" className="btn btn--secondary">
+          <Link href="/contact-us" className="btn btn--secondary">
             Contact {site.name}
           </Link>
         </div>

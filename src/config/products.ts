@@ -3,66 +3,71 @@
  * PRODUCT CATALOGUE
  * ============================================================================
  *
- * RULE: only list phones you actually have in stock. Do not publish sample
- * models or prices to "fill up" the page — Razorpay and your customers will
- * both notice.
+ * RULE: only list accessories you actually stock, at the price you actually
+ * charge. Do not publish sample products or prices to "fill up" the page —
+ * Razorpay and your customers will both notice.
  *
  * The Products section on the homepage and the /pricing page both read from
  * this file. With an empty `products` array they render an honest
- * "listings coming soon / contact us" panel instead of fake cards.
+ * "price list is being updated" panel instead of fake cards.
  *
  * ---------------------------------------------------------------------------
- * HOW TO ADD A PHONE
+ * HOW TO ADD A PRODUCT
  * ---------------------------------------------------------------------------
- * 1. Put the photo in `public/products/` — e.g. `public/products/iphone-12.jpg`
+ * 1. Put the photo in `public/products/` — e.g. `public/products/20w-charger.jpg`
  *    Recommended: a clean square shot, at least 800x800px, under 300 KB.
- * 2. Add an entry to the array below, copying the shape of the example.
- * 3. Set `available: true`. Set it to `false` for sold units — sold units are
- *    shown struck through and are skipped by the "in stock only" filter.
- *
- * REMOVE the example entries below before publishing.
+ * 2. Add an entry to the array below, copying the shape of the commented
+ *    sample (remove the leading // on each line).
+ * 3. Set `available: false` when an item is out of stock.
  * ---------------------------------------------------------------------------
  */
+
+export const CATEGORIES = [
+  "Chargers",
+  "Cables",
+  "Earbuds & earphones",
+  "Phone covers",
+  "Power banks",
+  "Smartwatches",
+  "Other accessories",
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
 
 export type Product = {
   /** Unique, URL-safe id. Used as the image filename. */
   slug: string;
-  /** Exact model name as it should be printed, e.g. "Samsung Galaxy M32". */
+  /** Product name as it should be printed, including the brand. */
   name: string;
-  /** Storage / RAM variant, e.g. "6 GB RAM · 128 GB Storage". */
-  variant?: string;
-  /** Selling price in INR as a plain number (no symbol, no commas). */
+  /** One of CATEGORIES. Products are grouped by category on the site. */
+  category: Category;
+  /** Short spec line, e.g. "Type-C · 20W · 1 year brand warranty". */
+  details?: string;
+  /** Selling price in INR (inclusive of taxes) as a plain number. */
   price: number;
-  /**
-   * Condition grade, exactly as you describe it to customers.
-   * Keep this consistent with your grading method.
-   */
-  grade?: string;
-  /** Honest short condition note, e.g. "Minor scratches on back panel". */
-  notes?: string;
+  /** MRP in INR, if higher than the selling price. Shown struck through. */
+  mrp?: number;
   /** Path under /public. Leave undefined to render a neutral placeholder tile. */
   image?: string;
-  /** false = already sold. */
+  /** false = currently out of stock. */
   available: boolean;
 };
 
 export const products: Product[] = [
-  // -------------------------------------------------------------------------
-  // EXAMPLE — DELETE THIS BLOCK AND REPLACE WITH REAL INVENTORY
-  // -------------------------------------------------------------------------
+  // Copy this shape for each real product:
   // {
-  //   slug: "iphone-12-64gb",
-  //   name: "iPhone 12",
-  //   variant: "64 GB",
-  //   price: 24999,
-  //   grade: "Grade A",
-  //   notes: "Battery health 88%, no screen scratches.",
-  //   image: "/products/iphone-12.jpg",
+  //   slug: "brand-20w-type-c-charger",
+  //   name: "<Brand> 20W Type-C Fast Charger",
+  //   category: "Chargers",
+  //   details: "USB Type-C · 20W · 6 months brand warranty",
+  //   price: 0,
+  //   mrp: 0,
+  //   image: "/products/brand-20w-type-c-charger.jpg",
   //   available: true,
   // },
 ];
 
-/** Only units that are actually for sale. */
+/** Only items that are actually for sale. */
 export const inStock = products.filter((product) => product.available);
 
 /** Lowest and highest listed price, or null when nothing is listed. */
@@ -73,6 +78,14 @@ export const priceRange: { min: number; max: number } | null =
         min: Math.min(...inStock.map((product) => product.price)),
         max: Math.max(...inStock.map((product) => product.price)),
       };
+
+/** Products grouped by category, in CATEGORIES order, skipping empty groups. */
+export function productsByCategory(): { category: Category; items: Product[] }[] {
+  return CATEGORIES.map((category) => ({
+    category,
+    items: products.filter((product) => product.category === category),
+  })).filter((group) => group.items.length > 0);
+}
 
 /** Formats an INR amount as ₹1,23,456 using the Indian digit grouping. */
 export function formatINR(amount: number): string {

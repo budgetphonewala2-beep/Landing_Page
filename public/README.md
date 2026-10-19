@@ -5,5 +5,5 @@
 swap in a newer version of the logo.
 
 `products/` — product photos. Name each file after the product `slug` in
-`src/config/products.ts`, e.g. `iphone-12-64gb.jpg`. Square images of at least
+`src/config/products.ts`, e.g. `20w-type-c-charger.jpg`. Square images of at least
 800 x 800 px work best.

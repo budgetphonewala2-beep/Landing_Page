@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
-import { navLinks, site } from "@/config/site";
+import { CloseIcon, MenuIcon } from "@/components/Icons";
+import { navLinks } from "@/config/site";
 
-/** True when this nav item points at the section currently in view. */
+/** True when this nav item points at the page currently open. */
 function isActive(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
   return pathname === href;
@@ -36,7 +37,7 @@ export function Navbar() {
         </nav>
 
         <Link href="/#products" className="btn btn--primary btn--small header__cta">
-          See available phones
+          Shop accessories
         </Link>
 
         <button
@@ -46,7 +47,7 @@ export function Navbar() {
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="nav-toggle__bars" aria-hidden="true" />
+          {open ? <CloseIcon size={18} /> : <MenuIcon size={18} />}
           Menu
         </button>
       </div>
@@ -62,12 +63,8 @@ export function Navbar() {
               </li>
             ))}
             <li>
-              <Link
-                href="/#contact"
-                className="btn btn--primary btn--block"
-                onClick={close}
-              >
-                Contact {site.name}
+              <Link href="/#products" className="btn btn--primary btn--block" onClick={close}>
+                Shop accessories
               </Link>
             </li>
           </ul>

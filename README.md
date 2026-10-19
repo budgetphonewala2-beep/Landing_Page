@@ -1,7 +1,8 @@
-# BudgetPhoneWala — Landing Page
+# BudgetPhoneWala Accessories — Website
 
-Marketing website for **BudgetPhoneWala**, a business that sells second-hand
-smartphones in India.
+Website for **BudgetPhoneWala Accessories**, a mobile accessories store in
+Pandharpur, Maharashtra (chargers, cables, earbuds, covers, power banks,
+smartwatches).
 
 Built with **Next.js 16 (App Router) + TypeScript**. Fully static, no database,
 no backend, no API keys. Deployed on Vercel.
@@ -34,12 +35,13 @@ nothing is invented.
 | # | What to add | Where |
 |---|---|---|
 | 1 | Live domain URL | `NEXT_PUBLIC_SITE_URL` in `.env.local` and in Vercel env vars |
+| 1a | Legal name + GSTIN (exactly as on KYC) | `src/config/site.ts` → `legalName`, `gstin` |
 | 2 | Business email | `src/config/site.ts` → `contact.email` |
 | 3 | Phone number | `src/config/site.ts` → `contact.phone` |
 | 4 | WhatsApp number (with country code) | `src/config/site.ts` → `contact.whatsapp` |
 | 5 | Business address | `src/config/site.ts` → `contact.address` |
 | 6 | Business hours | `src/config/site.ts` → `contact.hours` |
-| 7 | Real phones: model, variant, grade, price, photo | `src/config/products.ts` + `public/products/` |
+| 7 | Real products: name, category, price, MRP, photo | `src/config/products.ts` + `public/products/` |
 | 8 | Last-updated date for the policy pages | `src/config/site.ts` → `legal.policiesUpdatedOn` |
 | 9 | Review every `TODO(confirm)` note in the policies | `src/content/policies.ts` |
 | 10 | Review the About / hero copy so it matches how you actually trade | `src/config/site.ts` → `about`, `heroSummary` |
@@ -51,7 +53,7 @@ anything still missing.
 
 - An empty contact field is **hidden**, never replaced with a fake value.
 - With no products listed, the Products section shows an honest
-  "listings are being updated" panel instead of sample phones.
+  "price list is being updated" panel instead of sample products.
 - No delivery timelines, refund windows, warranty periods or fees are published
   unless you put them there yourself.
 
@@ -132,12 +134,13 @@ pages. This project provides all of them:
 | Razorpay asks for | This site |
 |---|---|
 | Website URL | your Vercel domain |
-| About us | `/#about` |
-| Contact us | `/#contact` |
+| About us | `/about-us` |
+| Contact us | `/contact-us` |
 | Pricing details | `/pricing` |
 | Terms and conditions | `/terms-and-conditions` |
 | Privacy policy | `/privacy-policy` |
 | Refund policy | `/cancellation-refund-policy` |
+| Return policy | `/return-policy` |
 | Shipping policy | `/shipping-policy` |
 | Sample invoice | upload a real invoice in the Razorpay dashboard (PNG/JPG/PDF) |
 

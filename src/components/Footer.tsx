@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { policyLinks, site } from "@/config/site";
+import { addressLines, policyLinks, site } from "@/config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -18,7 +18,7 @@ export function Footer() {
             <h2 className="footer__heading">Company</h2>
             <ul className="footer__list">
               <li>
-                <Link href="/#about">About Us</Link>
+                <Link href="/about-us">About Us</Link>
               </li>
               <li>
                 <Link href="/#products">Products</Link>
@@ -27,7 +27,7 @@ export function Footer() {
                 <Link href="/pricing">Pricing</Link>
               </li>
               <li>
-                <Link href="/#contact">Contact Us</Link>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -46,9 +46,12 @@ export function Footer() {
 
         <div className="footer__bottom">
           <p>
-            &copy; {year} {site.name}. All rights reserved.
+            &copy; {year} {site.legalName || site.name}. All rights reserved.
+            {site.gstin ? ` GSTIN: ${site.gstin}.` : ""}
           </p>
-          <p>Selling second-hand smartphones across {site.country}.</p>
+          <p>
+            {addressLines().join(", ")} · {site.contact.phone} · {site.contact.email}
+          </p>
         </div>
       </div>
     </footer>

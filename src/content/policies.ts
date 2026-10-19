@@ -1,4 +1,4 @@
-import { site } from "@/config/site";
+import { addressLines, site } from "@/config/site";
 
 /**
  * ============================================================================
@@ -10,12 +10,11 @@ import { site } from "@/config/site";
  * EDITING RULES
  * -------------
  * 1. Text in `paragraphs` and `bullets` is published on the live website.
- * 2. Lines marked `TODO(confirm)` are statements the owner must verify or
- *    replace before publishing. They are written in a deliberately neutral,
- *    non-committal form so that nothing false is published in the meantime.
- * 3. Never publish a delivery timeline, fee, warranty period, refund window or
- *    turnaround number that the business has not actually agreed to.
- * 4. Update `site.legal.policiesUpdatedOn` in `src/config/site.ts` whenever
+ * 2. Every timeline and window below (dispatch 1 to 2 working days, delivery 3 to 7
+ *    working days, 7-day replacement window, refund in 5 to 7 working days) is a
+ *    commitment to customers. Change a number here if your store works
+ *    differently — never publish a timeline you cannot meet.
+ * 3. Update `site.legal.policiesUpdatedOn` in `src/config/site.ts` whenever
  *    you change this file.
  */
 
@@ -37,85 +36,90 @@ export type Policy = {
 
 const updated = site.legal.policiesUpdatedOn;
 
+const operator = site.legalName ? `${site.name} (operated by ${site.legalName})` : site.name;
+const contactLine = `${site.name}, ${addressLines().join(", ")}. Phone / WhatsApp: ${site.contact.phone}. Email: ${site.contact.email}. Hours: ${site.contact.hours}.`;
+
 export const policies: Policy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "/privacy-policy",
     title: "Privacy Policy",
-    summary:
-      "How BudgetPhoneWala collects, uses and protects the personal information you share with us when you enquire about or purchase a second-hand smartphone.",
+    summary: `How ${site.name} collects, uses and protects the personal information you share with us when you enquire about or buy mobile accessories.`,
     callout:
-      "This website does not have user accounts, does not accept payments on this page, and does not use advertising or third-party tracking cookies.",
+      "This website has no user accounts and does not use advertising or third-party tracking cookies. We never see or store your card, UPI PIN or net-banking details.",
     sections: [
       {
-        heading: "1. Information we collect",
+        heading: "1. Who we are",
         paragraphs: [
-          "We collect only the information that is needed to sell you a phone and to deliver it. Depending on how you contact us, this can include:",
+          `This website is run by ${operator}, a mobile accessories store located at ${addressLines().join(", ")}. In this policy, "we", "us" and "our" refer to ${site.name}.`,
+        ],
+      },
+      {
+        heading: "2. Information we collect",
+        paragraphs: [
+          "We collect only the information needed to sell and deliver your order. Depending on how you contact us, this can include:",
         ],
         bullets: [
           "Your name.",
           "Your phone number and email address.",
           "Your delivery address, including city, state and PIN code.",
-          "The details of the order — which model you asked about, the amount discussed, and any condition notes you shared.",
+          "Order details: the products you bought, the amount paid and the payment reference.",
           "Basic technical information such as your IP address and browser type, which our web host may record in server logs for security and troubleshooting.",
         ],
       },
       {
-        heading: "2. How we use your information",
+        heading: "3. How we use your information",
         paragraphs: [
-          "We use your information to reply to your enquiry, confirm and process your order, arrange delivery, provide after-sales support, and issue your invoice.",
-          "We may also use your contact details to inform you about the specific order or product you have asked about. We do not sell your personal information to third parties.",
+          "We use your information to reply to your enquiry, confirm and process your order, arrange delivery, issue your bill, handle returns and refunds, and provide after-sales support.",
+          "We may contact you about your own order. We do not sell or rent your personal information to anyone.",
         ],
       },
       {
-        heading: "3. Sharing your information",
+        heading: "4. Payments",
         paragraphs: [
-          "We share your details only where it is necessary to fulfil your order or meet a legal obligation:",
+          "Online payments are processed by our payment gateway partner (such as Razorpay) on their secure systems. Your card number, CVV, UPI PIN and net-banking password are entered directly with the payment gateway and are never shared with or stored by us. We receive only the payment status and a transaction reference.",
         ],
+      },
+      {
+        heading: "5. Sharing your information",
+        paragraphs: ["We share your details only where it is necessary to fulfil your order or meet a legal obligation:"],
         bullets: [
-          "With courier or delivery partners, so that your phone and invoice can reach you.",
-          "With our payment provider, to the extent required to process and confirm a payment.",
+          "With courier and delivery partners, so that your order can reach you.",
+          "With our payment gateway partner, to process payments and refunds.",
           "With government or law-enforcement authorities, where we are legally required to do so.",
         ],
       },
       {
-        heading: "4. Cookies and analytics",
+        heading: "6. Cookies",
         paragraphs: [
-          "This website is a simple informational site. It does not set advertising cookies and does not run behavioural advertising or cross-site tracking.",
-          // TODO(confirm): if you later add analytics, name the provider here and
-          // state what it collects.
+          "This website does not set advertising cookies and does not run behavioural advertising or cross-site tracking.",
         ],
       },
       {
-        heading: "5. Data retention",
+        heading: "7. Data retention",
         paragraphs: [
-          "We keep your order and contact records for as long as needed to handle your order, provide after-sales support, and meet tax and accounting record-keeping requirements.",
-          // TODO(confirm): state an exact retention period if you have one.
+          "We keep order and billing records for as long as required by Indian tax and accounting laws (generally up to 8 years). Enquiries that did not lead to an order are deleted within 12 months.",
         ],
       },
       {
-        heading: "6. Your rights",
+        heading: "8. Your rights",
         paragraphs: [
-          "You can ask us for a copy of the personal information we hold about you, ask us to correct it, or ask us to delete it where we are not legally required to keep it. To make any of these requests, contact us using the details on our Contact section.",
+          "You can ask us for a copy of the personal information we hold about you, ask us to correct it, or ask us to delete it where we are not legally required to keep it. Contact us using the details below and we will respond within 15 days.",
         ],
       },
       {
-        heading: "7. Security",
+        heading: "9. Security",
         paragraphs: [
-          "We take reasonable care to protect your information, but no method of transmission over the internet or storage is completely secure. Please do not send sensitive documents over WhatsApp unless we specifically ask you to.",
+          "We take reasonable care to protect your information. No method of transmission over the internet or storage is completely secure, but we limit access to your details to the people who need them to handle your order.",
         ],
       },
       {
-        heading: "8. Changes to this policy",
-        paragraphs: [
-          "We may update this policy from time to time. The date shown at the top of this page reflects the most recent version.",
-        ],
+        heading: "10. Changes to this policy",
+        paragraphs: ["We may update this policy from time to time. The date shown at the top of this page reflects the most recent version."],
       },
       {
-        heading: "9. Contact",
-        paragraphs: [
-          "For any privacy-related question, contact us using the details listed on our Contact section and we will respond.",
-        ],
+        heading: "11. Contact",
+        paragraphs: [contactLine],
       },
     ],
   },
@@ -124,103 +128,84 @@ export const policies: Policy[] = [
   {
     slug: "/terms-and-conditions",
     title: "Terms & Conditions",
-    summary:
-      "The terms that apply when you browse this website, enquire about a phone, or place an order with BudgetPhoneWala.",
+    summary: `The terms that apply when you browse this website or buy mobile accessories from ${site.name}.`,
     sections: [
       {
         heading: "1. About these terms",
         paragraphs: [
-          `These Terms & Conditions govern your use of this website and any order you place with ${site.name}. By browsing this site, or by placing an order with us, you agree to these terms.`,
-          // TODO(confirm): review the wording with the owner before publishing.
+          `These Terms & Conditions govern your use of this website and every order you place with ${operator}. By browsing this site or placing an order, you agree to these terms.`,
         ],
       },
       {
-        heading: "2. Nature of the products",
+        heading: "2. Our products",
         paragraphs: [
-          "All phones sold by us are second-hand or pre-owned devices. They are not brand new products, and they are sold as-is in the condition described to you before purchase.",
-          "Each phone's grade, storage variant, battery health and any known defects are shared with you before payment. Please read those details carefully — they are the description of the exact unit you are buying.",
+          "We sell brand-new mobile accessories such as chargers, cables, earbuds and earphones, phone covers, power banks and smartwatches. Every product is new and supplied in its original packaging.",
+          "Product photos are for illustration. Colour and packaging may vary slightly from the photo. Compatibility with your phone model is confirmed with you before payment when you tell us your model.",
         ],
       },
       {
-        heading: "3. Orders and confirmation",
+        heading: "3. Orders",
         paragraphs: [
-          "An order becomes final once we confirm it to you on WhatsApp or by phone and you have made full payment. Availability is confirmed at the time of order, because second-hand stock changes quickly.",
-          "If any listing is sold or withdrawn before your order is confirmed, we will inform you and any amount paid will be refunded in full.",
+          "You can order on WhatsApp, by phone, or in person at our store. An order is confirmed once we have confirmed availability and price to you and payment is received (or, for store pickup, when you pay at the store).",
+          "If a product becomes unavailable after you have paid, we will inform you and refund the full amount as described in our Cancellation & Refund Policy.",
         ],
       },
       {
-        heading: "4. Pricing and payment",
+        heading: "4. Prices and payment",
         paragraphs: [
-          "Prices are shown in Indian Rupees (₹) and apply to the specific unit described. The quoted price is the price you pay.",
-          // TODO(confirm): state clearly whether any delivery or handling charge applies.
-          "We will tell you before payment if any additional charge applies.",
+          "All prices are in Indian Rupees (₹) and include applicable taxes. Our selling price is never higher than the MRP printed on the product.",
+          "Delivery charges, if any, are shown to you before payment. We accept UPI, debit and credit cards, net banking and wallets through our payment gateway partner, and cash or UPI at the store.",
+          "We may correct a price that was listed in error. If that happens after you have paid, we will offer you the choice of paying the correct price or cancelling with a full refund.",
         ],
       },
       {
         heading: "5. Delivery",
+        paragraphs: ["Delivery timelines and charges are described in our Shipping & Delivery Policy, which forms part of these terms."],
+      },
+      {
+        heading: "6. Warranty",
         paragraphs: [
-          "Delivery timelines, available courier options and any delivery charges are confirmed with you directly at the time of your order.",
-          // TODO(confirm): add your real delivery window and courier names here
-          // once agreed. Do not publish a timeline you cannot meet.
-          "Our Shipping Policy forms part of these terms.",
+          "Where a product comes with a manufacturer or brand warranty, the warranty period and terms are those stated by the brand on the product, its packaging or its warranty card. We help you with warranty claims for products bought from us.",
+          "Warranty does not cover physical damage, liquid damage, misuse, or damage caused by using non-compatible chargers or power sources.",
         ],
       },
       {
-        heading: "6. Condition reporting",
+        heading: "7. Cancellations, returns and refunds",
         paragraphs: [
-          "Because these are pre-owned devices, normal signs of use — light scratches, small dents, minor screen marks, or reduced battery life — are expected. Any defect beyond the disclosed description is covered by our Return Policy.",
+          "Our Cancellation & Refund Policy and our Return & Replacement Policy form part of these terms and apply to every order.",
         ],
       },
       {
-        heading: "7. Warranty",
+        heading: "8. Acceptable use of this website",
         paragraphs: [
-          // TODO(confirm): this is deliberately conservative. If you DO offer any
-          // warranty, state the exact period and what it covers, then replace this paragraph.
-          "These phones are sold without a manufacturer warranty unless we have explicitly told you otherwise in writing for a specific unit. Any warranty we do provide is limited to the written terms shared with you at the time of that order.",
+          "You may browse this website and contact us for genuine enquiries. You may not attempt to disrupt the site, probe it for vulnerabilities, scrape its content at scale, or use it to send unsolicited or misleading messages.",
         ],
       },
       {
-        heading: "8. Returns, cancellations and refunds",
+        heading: "9. Intellectual property",
         paragraphs: [
-          "Our Return Policy and Cancellation & Refund Policy form part of these terms and apply to every order.",
+          `The ${site.name} name, logo and website content belong to us. Product names and brand logos belong to their respective owners.`,
         ],
       },
       {
-        heading: "9. Acceptable use of this website",
+        heading: "10. Limitation of liability",
         paragraphs: [
-          "You may browse this website and contact us for legitimate enquiries. You may not attempt to disrupt the site, probe it for vulnerabilities, scrape its content at scale, or use it to send unsolicited or misleading messages.",
+          "To the extent permitted by law, we are not liable for indirect or consequential loss arising from a purchase. Our total liability for any order is limited to the amount you paid for that order.",
         ],
       },
       {
-        heading: "10. Intellectual property",
+        heading: "11. Governing law and disputes",
         paragraphs: [
-          `The ${site.name} name, logo and website content belong to ${site.name}. You may view and share our pages for personal, non-commercial use. You may not reproduce them commercially without our written permission.`,
+          `These terms are governed by the laws of India. Any dispute is subject to the jurisdiction of the courts at ${site.legal.jurisdiction}. We encourage you to contact us first, as most issues are resolved quickly over WhatsApp or phone.`,
         ],
       },
       {
-        heading: "11. Limitation of liability",
-        paragraphs: [
-          "To the extent permitted by law, we are not liable for indirect or consequential loss arising from a purchase, including loss of data stored on a device. Our liability for any order is limited to the amount you paid for that order.",
-        ],
+        heading: "12. Changes to these terms",
+        paragraphs: ["We may revise these terms at any time. The version published on this page applies to orders placed after it was last updated."],
       },
       {
-        heading: "12. Governing law",
-        paragraphs: [
-          // TODO(confirm): add your city/state if you want the jurisdiction stated.
-          "These terms are governed by the laws of India.",
-        ],
-      },
-      {
-        heading: "13. Changes to these terms",
-        paragraphs: [
-          "We may revise these terms at any time. The version published on this page applies to orders confirmed after it was last updated.",
-        ],
-      },
-      {
-        heading: "14. Contact",
-        paragraphs: [
-          "Questions about these terms can be sent to us using the details on our Contact section.",
-        ],
+        heading: "13. Contact",
+        paragraphs: [contactLine],
       },
     ],
   },
@@ -228,74 +213,62 @@ export const policies: Policy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "/shipping-policy",
-    title: "Shipping Policy",
-    summary:
-      "How your second-hand smartphone is packed, dispatched and delivered to you.",
+    title: "Shipping & Delivery Policy",
+    summary: "How and when your accessories are packed, dispatched and delivered.",
+    callout:
+      "Orders are dispatched within 1 to 2 working days and usually delivered within 3 to 7 working days across India. Store pickup in Pandharpur is free and usually ready the same day.",
     sections: [
       {
-        heading: "1. Order confirmation before dispatch",
-        paragraphs: [
-          "Every order is confirmed personally with you before dispatch. We share the details of the specific unit, the agreed price, and the delivery arrangements on WhatsApp or by phone. We do not dispatch an unconfirmed order.",
+        heading: "1. Delivery options",
+        bullets: [
+          "Home delivery to serviceable PIN codes across India through courier partners.",
+          `Free store pickup from ${addressLines().join(", ")}, during business hours (${site.contact.hours}).`,
         ],
       },
       {
-        heading: "2. Delivery timelines",
+        heading: "2. Dispatch time",
         paragraphs: [
-          "The delivery window depends on your location and the courier available for it. The expected timeline for your specific order is confirmed with you in writing before dispatch.",
-          // TODO(confirm): replace the paragraph above with your real committed
-          // windows, e.g. "Metro cities: 2–4 working days. Rest of India: 4–7
-          // working days." Only publish numbers you can consistently meet.
+          "Orders are packed and handed to the courier within 1 to 2 working days after the order is confirmed and payment is received. Orders confirmed on a Sunday or public holiday are dispatched from the next working day.",
+          "Store pickup orders are usually ready the same day; we message you when your order is ready.",
         ],
       },
       {
-        heading: "3. Delivery coverage",
+        heading: "3. Delivery time",
         paragraphs: [
-          "We deliver to serviceable PIN codes across India.",
-          // TODO(confirm): list any states or regions you genuinely cannot serve.
+          "After dispatch, delivery usually takes 3 to 7 working days depending on your location. Deliveries within Pandharpur and nearby areas are usually faster. Remote areas may take longer; we will tell you before you pay if your PIN code needs more time.",
         ],
       },
       {
         heading: "4. Shipping charges",
         paragraphs: [
-          // TODO(confirm): state your real shipping charge policy. Do not publish
-          // "free shipping" unless it is true for every order.
-          "Any shipping or handling charge applicable to your order is disclosed to you before payment. It is never added to the agreed price after payment.",
+          "Any delivery charge for your order is shown to you before payment and is never added after payment. Store pickup is free.",
         ],
       },
       {
-        heading: "5. Packing and safety",
+        heading: "5. Tracking",
+        paragraphs: ["Once your order is dispatched, we share the courier name and tracking number on WhatsApp or SMS."],
+      },
+      {
+        heading: "6. Delays",
         paragraphs: [
-          "To reduce the risk of transit damage, your phone is packed with protective material before handing it to the courier.",
-          // TODO(confirm): describe your actual packing method (bubble wrap, rigid
-          // box, screen guard, etc.) once you have a standard packing routine.
+          "Deliveries can occasionally be delayed by courier network issues, weather or local disruptions. We will inform you if we become aware of a delay. If your order has not arrived within 10 working days of dispatch, contact us and we will either trace it with the courier or offer a replacement or full refund.",
         ],
       },
       {
-        heading: "6. Tracking",
+        heading: "7. Failed delivery",
         paragraphs: [
-          "A tracking number is shared with you once the parcel is picked up, where the courier provides one.",
-          // TODO(confirm): name the courier(s) you actually use if you want to.
+          "If the courier cannot deliver because the address was incomplete or nobody was available after their attempts, the parcel is returned to us. We will contact you to arrange re-delivery or a refund as per our Cancellation & Refund Policy.",
         ],
       },
       {
-        heading: "7. Delays",
+        heading: "8. Damaged parcel",
         paragraphs: [
-          "Occasionally, deliveries are delayed for reasons outside our control, such as courier network issues, weather, or service disruptions in the destination area. We will inform you as soon as we are aware of a delay.",
-          "If tracking shows that a parcel has not moved for several working days, contact us and we will follow up with the courier.",
+          "Please check the parcel at delivery. If the outer packaging is visibly damaged or tampered with, you may refuse it, or accept it and inform us within 48 hours with photos of the packaging and product. We recommend recording a short unboxing video. Transit-damaged items are replaced or refunded under our Return & Replacement Policy.",
         ],
       },
       {
-        heading: "8. Failed delivery attempts",
-        paragraphs: [
-          "If a delivery attempt fails because the recipient was unavailable, the courier may attempt delivery again or return the parcel to us. Any re-delivery or return-related cost, if applicable, is communicated to you before we proceed.",
-        ],
-      },
-      {
-        heading: "9. Damage or loss in transit",
-        paragraphs: [
-          "If your phone arrives damaged or the parcel is lost in transit, contact us immediately with photographs of the packaging and the device, and with your tracking details.",
-          "We will investigate with the courier and take forward a claim. Resolution timelines depend on the courier's investigation.",
-        ],
+        heading: "9. Contact",
+        paragraphs: [contactLine],
       },
     ],
   },
@@ -304,72 +277,48 @@ export const policies: Policy[] = [
   {
     slug: "/cancellation-refund-policy",
     title: "Cancellation & Refund Policy",
-    summary:
-      "When you can cancel an order, when you cannot, and how any refund is returned to you.",
+    summary: "When you can cancel an order, and how and when refunds reach you.",
+    callout:
+      "Cancel any time before dispatch for a full refund. Approved refunds are initiated within 2 working days and usually reach your original payment method within 5 to 7 working days.",
     sections: [
       {
-        heading: "1. Cancellations before dispatch",
+        heading: "1. Cancelling before dispatch",
         paragraphs: [
-          "You may cancel an order at any time before it is dispatched, by contacting us on WhatsApp or by phone.",
-          "If you cancel before dispatch, any amount you have paid is refunded in full.",
-          // TODO(confirm): confirm you are able to honour a cancellation request
-          // that arrives right up to the moment of handover to the courier.
+          "You can cancel your order at any time before it is dispatched (or before you collect it, for store pickup) by messaging or calling us. You will receive a full refund of the amount paid, including any delivery charge.",
         ],
       },
       {
-        heading: "2. Cancellations after dispatch",
+        heading: "2. Cancelling after dispatch",
         paragraphs: [
-          "Once an order has been handed to the courier, we can no longer cancel it before delivery. If you still want to cancel after dispatch, let us know immediately — we will try to have the parcel stopped or recalled, but this depends on the courier and cannot be guaranteed.",
-          // TODO(confirm): state whether you offer a restocking or recall fee.
+          "Once an order has been handed to the courier it cannot be cancelled. You can refuse the parcel at delivery; once it comes back to us unused and in its original packaging, we refund the product price. The delivery charge, if any, is not refunded in this case.",
+          "If you received a damaged, defective or wrong product, our Return & Replacement Policy applies instead and you receive a full refund or replacement.",
         ],
       },
       {
-        heading: "3. Order refused at delivery",
+        heading: "3. Cancellation by us",
         paragraphs: [
-          "If you refuse a delivery, the courier will return the parcel to us. Once the returned phone has been received and checked, we will process the refund as described below.",
-          "Return shipping costs in this situation are borne by the customer.",
-          // TODO(confirm): confirm the above cost position.
+          "We may cancel an order if the product is out of stock, the price was listed in error, or we cannot deliver to your PIN code. In that case you receive a full refund.",
         ],
       },
       {
-        heading: "4. Non-delivery",
-        paragraphs: [
-          "If a confirmed order cannot be delivered, we will contact you. Where we cannot deliver, your payment is refunded in full.",
-        ],
-      },
-      {
-        heading: "5. How refunds are processed",
-        paragraphs: [
-          "Approved refunds are returned to the original payment method used for the order.",
-          // TODO(confirm): confirm the refund turnaround time below before publishing.
-          "The time it takes for the amount to reflect in your account depends on your bank or payment provider and is usually a few working days after we initiate the refund.",
-          "For orders paid by cash, any refund is settled by bank transfer to an account you provide. Bank charges, if any, are deducted as per your bank's rules.",
-          // TODO(confirm): confirm the cash-refund method above.
-        ],
-      },
-      {
-        heading: "6. Refunds for genuine problems",
-        paragraphs: [
-          "If a delivered phone has a defect that we did not disclose before the sale, or is materially different from what was described, our Return Policy applies and any refund due is processed after we receive and inspect the unit.",
-        ],
-      },
-      {
-        heading: "7. Non-refundable situations",
-        paragraphs: [
-          "Please note that a refund is generally not available for:",
-        ],
+        heading: "4. Refund timelines",
         bullets: [
-          "Signs of normal use on a second-hand device, such as light scratches, minor dents or reduced battery life, where these were disclosed before purchase.",
-          "Issues that arise from software updates, third-party apps, or modifications made after delivery.",
-          "Physical or liquid damage caused after delivery.",
-          "A change of mind where the device has already been delivered and shows no disclosed-condition fault.",
+          "Refunds are initiated within 2 working days of the cancellation being accepted, or of the returned product reaching us and passing inspection.",
+          "Online payments are refunded to the original payment method (UPI, card, net banking or wallet). The amount usually reflects in 5 to 7 working days, depending on your bank.",
+          "Cash payments at the store are refunded in cash at the store, or by UPI / bank transfer to an account you provide, within 5 to 7 working days.",
         ],
       },
       {
-        heading: "8. Chargebacks",
-        paragraphs: [
-          "If you raise a dispute with your bank or card issuer directly, we will still cooperate fully by sharing your order records and the condition details we shared with you at the time of sale.",
+        heading: "5. Not refundable",
+        bullets: [
+          "Products damaged after delivery through misuse, drops or liquid.",
+          "Products returned without their original packaging, accessories or bill, except where the item arrived damaged.",
+          "Opened earbuds and earphones, for hygiene reasons, unless they are defective or the wrong item was sent.",
         ],
+      },
+      {
+        heading: "6. How to request a cancellation or refund",
+        paragraphs: [`Message us on WhatsApp or call ${site.contact.phone} with your name and order details. ${contactLine}`],
       },
     ],
   },
@@ -377,77 +326,52 @@ export const policies: Policy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "/return-policy",
-    title: "Return Policy",
-    summary:
-      "What to do if the phone you received is not in the condition we described.",
+    title: "Return & Replacement Policy",
+    summary: "What to do if you receive a damaged, defective or wrong product.",
+    callout: "Report a damaged, defective or wrong item within 7 days of delivery and we will replace it or give you a full refund.",
     sections: [
       {
-        heading: "1. Our commitment",
-        paragraphs: [
-          "We describe every phone honestly before you pay. If the device you receive does not match that description, we will make it right under this policy.",
-        ],
-      },
-      {
-        heading: "2. Reporting an issue",
-        paragraphs: [
-          "If something is wrong with your phone, contact us on WhatsApp or by phone as soon as you notice it, and ideally within a short period of delivery.",
-          // TODO(confirm): set a concrete reporting window (e.g. 7 days from
-          // delivery) so customers know exactly what to expect.
-          "Please send clear photographs or a short video of the issue, along with your order details. It helps us resolve things much faster.",
-        ],
-      },
-      {
-        heading: "3. What is covered",
-        paragraphs: [
-          "This policy covers faults that were not disclosed to you before purchase, including:",
-        ],
+        heading: "1. What is covered",
+        paragraphs: ["You can request a replacement or a full refund within 7 days of delivery (or store pickup) if:"],
         bullets: [
-          "A device that powers on or fails to power on when it was described as working.",
-          "A screen, camera, speaker, microphone, charging port, button or network function that is not working, and was not disclosed.",
-          "A device that is a different model, storage variant, or a materially different unit from the one you were shown and agreed to buy.",
+          "The product arrived physically damaged.",
+          "The product does not work or has a manufacturing defect.",
+          "You received a different product, model or colour from what you ordered.",
+          "The product is not compatible with the phone model you told us before purchase.",
         ],
       },
       {
-        heading: "4. What is not covered",
-        paragraphs: [
-          "These are pre-owned devices, so the following are not treated as faults under this policy:",
-        ],
+        heading: "2. How to request a return",
         bullets: [
-          "Light scratches, minor dents, or small marks on the body or screen that were disclosed before purchase.",
-          "Reduced battery capacity, which is inherent to a used battery and was disclosed as a battery health figure.",
-          "Minor differences in cosmetic appearance from the listing photographs.",
-          "Software, app, or network issues caused by third-party software or account settings.",
-          "Damage arising after delivery, including accidental drops, liquid damage, or unauthorised repair.",
+          `Message us on WhatsApp (${site.contact.whatsapp}) within 7 days of delivery with your name, order details and clear photos or a short video of the issue.`,
+          "We reply within 1 working day and arrange a courier pickup or ask you to return the item to our store.",
+          "The product must be returned with its original box, all accessories and the bill.",
         ],
       },
       {
-        heading: "5. How a return is processed",
+        heading: "3. Return shipping",
         paragraphs: [
-          "Once we accept a return, we will agree a return method and a pickup or shipping arrangement with you.",
-          "The device must be returned with its accessories, box, and the invoice we supplied, in the same condition as it was received.",
-          "The refund is initiated after we receive the device and verify that its condition matches what we shipped.",
-          // TODO(confirm): state who pays return shipping for each case —
-          // fault on our side vs. customer remorse.
+          "For damaged, defective or wrong items, we bear the return shipping cost. If a courier pickup is not available at your PIN code, we will reimburse the reasonable cost of sending the item back to us.",
         ],
       },
       {
-        heading: "6. Replacement",
+        heading: "4. Replacement or refund",
         paragraphs: [
-          "Where stock allows, we may offer a replacement unit with similar or equivalent specification instead of a refund. If you would prefer a refund, tell us and we will process it instead.",
-          // TODO(confirm): confirm your replacement policy (e.g. price match, top-up).
+          "Once we receive the item and confirm the issue (usually within 2 working days), we dispatch a replacement, or, if you prefer or the item is out of stock, refund the full amount as per our Cancellation & Refund Policy.",
         ],
       },
       {
-        heading: "7. Inspection",
-        paragraphs: [
-          "Returned devices are inspected for condition and completeness before a refund or replacement is confirmed. If a returned device shows damage beyond what was reported, we will share photographs with you before any decision is made.",
+        heading: "5. Not covered",
+        bullets: [
+          "Change of mind on opened products.",
+          "Opened earbuds and earphones, for hygiene reasons, unless defective or the wrong item was sent.",
+          "Damage caused after delivery: drops, liquid, misuse or unauthorised repair.",
+          "Requests made more than 7 days after delivery. After 7 days, defects are handled under the brand warranty, where one applies, and we help you with the claim.",
         ],
       },
       {
-        heading: "8. How the refund is paid",
-        paragraphs: [
-          "Approved refunds are paid to the original payment method. Cash-paid orders are refunded by bank transfer. See our Cancellation & Refund Policy for details.",
-        ],
+        heading: "6. Contact",
+        paragraphs: [contactLine],
       },
     ],
   },

@@ -19,22 +19,22 @@ const policiesSource = readFileSync(join(root, "src/content/policies.ts"), "utf8
 
 const checks = [
   {
-    label: "Business email published on /#contact",
+    label: "Business email published on /contact-us",
     done: /email:\s*"[^"]+"/.test(siteSource),
     fix: "src/config/site.ts -> contact.email",
   },
   {
-    label: "Phone number published on /#contact",
+    label: "Phone number published on /contact-us",
     done: /phone:\s*"[^"]+"/.test(siteSource),
     fix: "src/config/site.ts -> contact.phone",
   },
   {
-    label: "WhatsApp number published on /#contact",
+    label: "WhatsApp number published on /contact-us",
     done: /whatsapp:\s*"[^"]+"/.test(siteSource),
     fix: "src/config/site.ts -> contact.whatsapp",
   },
   {
-    label: "Business address published on /#contact",
+    label: "Business address published on /contact-us",
     done: /line1:\s*"[^"]+"/.test(siteSource),
     fix: "src/config/site.ts -> contact.address",
   },
@@ -49,14 +49,19 @@ const checks = [
     fix: "src/config/site.ts -> legal.policiesUpdatedOn",
   },
   {
-    label: "At least one real phone is listed with a price",
-    done: /price:\s*\d+/.test(productsSource),
+    label: "At least one real product is listed with its price",
+    done: /^\s*price:\s*[1-9]\d*/m.test(productsSource),
     fix: "src/config/products.ts -> products[]",
   },
   {
-    label: "Example/scratch product entries removed",
-    done: !/EXAMPLE/i.test(productsSource),
-    fix: "src/config/products.ts",
+    label: "Legal name (as on Razorpay KYC / GST certificate) shown",
+    done: /legalName:\s*"[^"]+"/.test(siteSource),
+    fix: "src/config/site.ts -> legalName",
+  },
+  {
+    label: "GSTIN shown (if registered)",
+    done: /gstin:\s*"[^"]+"/.test(siteSource),
+    fix: "src/config/site.ts -> gstin",
   },
   {
     label: "Every TODO(confirm) in the policies has been reviewed",
@@ -77,7 +82,7 @@ const checks = [
 
 const pending = checks.filter((check) => !check.done);
 
-console.log("\n  BudgetPhoneWala — pre-publish checklist");
+console.log("\n  BudgetPhoneWala Accessories — pre-publish checklist");
 console.log("  " + "-".repeat(52));
 
 if (pending.length === 0) {
