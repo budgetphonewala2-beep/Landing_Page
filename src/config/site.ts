@@ -19,10 +19,14 @@
  * (`process.env.*`) and this website does not require any secrets at all.
  */
 
-/** Canonical website URL. Set NEXT_PUBLIC_SITE_URL in your deployment. */
+/**
+ * Canonical website URL, used for canonical tags, Open Graph, sitemap.xml and
+ * robots.txt. Defaults to the live Vercel deployment; when you add a custom
+ * domain, set NEXT_PUBLIC_SITE_URL to it in Vercel and redeploy.
+ */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://budgetphonewala.com"; // TODO: confirm the real domain
+  "https://landing-page-alpha-red-22.vercel.app";
 
 export const site = {
   /** Business / brand name. */

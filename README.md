@@ -104,7 +104,7 @@ scripts/
 To have Vercel set the site URL automatically, or to pin your own domain:
 
 - **Environment variable:** add `NEXT_PUBLIC_SITE_URL` with your final domain
-  (e.g. `https://budgetphonewala.com`) under *Project → Settings → Environment
+  (e.g. `https://your-own-domain.in`) under *Project → Settings → Environment
   Variables*, then redeploy.
 - **Custom domain:** *Project → Settings → Domains → Add* your domain and follow
   the DNS instructions Vercel shows.
