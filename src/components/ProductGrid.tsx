@@ -5,14 +5,16 @@ import {
   type Product,
 } from "@/config/products";
 import { hasWhatsApp, site, whatsappHref } from "@/config/site";
-import { CATEGORY_ICONS, MessageIcon } from "@/components/Icons";
+import { CATEGORY_ICONS, MessageIcon, TagIcon } from "@/components/Icons";
 
 function ProductCard({ product }: { product: Product }) {
   const showMrp = product.mrp !== undefined && product.mrp > product.price;
+  const off = showMrp ? Math.round(((product.mrp! - product.price) / product.mrp!) * 100) : 0;
+  const PlaceholderIcon = CATEGORY_ICONS[product.category] ?? TagIcon;
 
   return (
     <article className={`product${product.available ? "" : " product--sold"}`}>
-      <div className="product__media">
+      <div className={`product__media${product.image ? "" : " product__media--icon"}`}>
         {product.image ? (
           <Image
             src={product.image}
@@ -20,7 +22,9 @@ function ProductCard({ product }: { product: Product }) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 25vw"
           />
-        ) : null}
+        ) : (
+          <PlaceholderIcon size={64} weight="light" />
+        )}
         <span
           className={`product__badge${product.available ? "" : " product__badge--sold"}`}
         >
@@ -33,14 +37,18 @@ function ProductCard({ product }: { product: Product }) {
         {product.details ? (
           <p className="product__variant">{product.details}</p>
         ) : null}
+        {product.description ? (
+          <p className="product__notes">{product.description}</p>
+        ) : null}
 
         <div className="product__foot">
-          <span className="product__price">
-            {formatINR(product.price)}
-            {showMrp ? (
+          <span className="product__price">{formatINR(product.price)}</span>
+          {showMrp ? (
+            <span className="product__mrp-row">
               <s className="product__mrp">MRP {formatINR(product.mrp!)}</s>
-            ) : null}
-          </span>
+              <span className="product__off">{off}% off</span>
+            </span>
+          ) : null}
         </div>
 
         {product.available && hasWhatsApp ? (
