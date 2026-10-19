@@ -140,7 +140,7 @@ export function CatalogueNote() {
   return (
     <p className="section__lede">
       All prices are in Indian Rupees (₹) and include applicable taxes. Every
-      item is brand-new in its original packaging. Delivery charges, if any,
+      accessory is brand-new in its original packaging. Delivery charges, if any,
       are shown to you before payment.
     </p>
   );

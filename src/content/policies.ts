@@ -139,7 +139,8 @@ export const policies: Policy[] = [
       {
         heading: "2. Our products",
         paragraphs: [
-          "We sell brand-new mobile accessories such as chargers, cables, earbuds and earphones, phone covers, power banks and smartwatches. Every product is new and supplied in its original packaging.",
+          "We sell brand-new mobile accessories such as chargers, cables, earbuds and earphones, phone covers, power banks and smartwatches. Every accessory is new and supplied in its original packaging.",
+          "We also sell pre-owned smartphones. Each pre-owned phone is a single unit and is sold in the condition described to you before purchase, including its storage, colour, battery health, any cosmetic marks and the accessories included. The price of each phone is shared with you on WhatsApp or at the store before you pay. Any warranty on a pre-owned phone is as stated to you in writing for that unit.",
           "Product photos are for illustration. Colour and packaging may vary slightly from the photo. Compatibility with your phone model is confirmed with you before payment when you tell us your model.",
         ],
       },

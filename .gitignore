@@ -31,3 +31,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# raw shop photos: their labels show IMEI numbers; only the cropped copies in
+# public/phones/ are published
+/public/products/WhatsApp*
+/rozorpay.png
+/web.txt

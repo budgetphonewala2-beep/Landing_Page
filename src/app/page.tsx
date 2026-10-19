@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CategoryBento } from "@/components/CategoryBento";
 import { ContactDetails } from "@/components/ContactDetails";
 import { LogoMark } from "@/components/Logo";
+import { PhoneGrid } from "@/components/PhoneGrid";
 import { ProductGrid } from "@/components/ProductGrid";
 import {
   ArrowRightIcon,
@@ -25,12 +26,13 @@ import {
   site,
   whatsappHref,
 } from "@/config/site";
+import { phonesInStock } from "@/config/phones";
 
 /** Small icon chosen per highlight, in the order the highlights are listed. */
 const HIGHLIGHT_ICONS = [ShieldCheckIcon, PhoneIcon, TagIcon, ChatIcon, InvoiceIcon, ReturnIcon];
 
 const TRUST_POINTS = [
-  { icon: SealIcon, text: "Brand-new, sealed products" },
+  { icon: SealIcon, text: "Brand-new, sealed accessories" },
   { icon: TagIcon, text: "Prices include taxes" },
   { icon: InvoiceIcon, text: "Bill with every order" },
   { icon: StoreIcon, text: "Store pickup or delivery" },
@@ -135,8 +137,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------ pre-owned phones */}
+      {phonesInStock.length > 0 && (
+        <section id="phones" className="section" aria-labelledby="phones-title">
+          <div className="container">
+            <div className="section__head reveal">
+              <h2 id="phones-title" className="section__title">
+                Pre-owned phones
+              </h2>
+              <p className="section__lede">
+                iPhones and Samsung phones in our store right now. Each phone is
+                a single pre-owned unit. Message us for its price and full
+                condition before you buy.
+              </p>
+            </div>
+            <PhoneGrid />
+          </div>
+        </section>
+      )}
+
       {/* ------------------------------------------------------ why choose */}
-      <section className="section" aria-labelledby="why-title">
+      <section className="section section--tint" aria-labelledby="why-title">
         <div className="container">
           <div className="section__head reveal">
             <h2 id="why-title" className="section__title">
@@ -163,7 +184,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------------------------------------------------- about */}
-      <section id="about" className="section section--tint" aria-labelledby="about-title">
+      <section id="about" className="section" aria-labelledby="about-title">
         <div className="container">
           <div className="about-block__copy reveal">
             <h2 id="about-title" className="section__title">

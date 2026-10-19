@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CatalogueNote, ProductGrid } from "@/components/ProductGrid";
+import { PhoneGrid } from "@/components/PhoneGrid";
+import { phonesInStock } from "@/config/phones";
 import { InvoiceIcon, TagIcon, TruckIcon } from "@/components/Icons";
 import { formatINR, inStock, priceRange } from "@/config/products";
 import { site } from "@/config/site";
@@ -19,10 +21,11 @@ export default function PricingPage() {
         <div className="container">
           <h1 className="page-hero__title">Accessory prices</h1>
           <p className="page-hero__lede">
-            Every product has one fixed price in Indian Rupees (₹), including
+            Every accessory has one fixed price in Indian Rupees (₹), including
             applicable taxes. The price you see is the price you pay for the item.
+            Pre-owned phones are priced individually; ask us on WhatsApp.
             {priceRange
-              ? ` Current prices range from ${formatINR(priceRange.min)} to ${formatINR(priceRange.max)} across ${inStock.length} products in stock.`
+              ? ` Accessory prices range from ${formatINR(priceRange.min)} to ${formatINR(priceRange.max)} across ${inStock.length} products in stock.`
               : ""}
           </p>
         </div>
@@ -39,6 +42,24 @@ export default function PricingPage() {
           <ProductGrid />
         </div>
       </section>
+
+      {phonesInStock.length > 0 && (
+        <section id="phones" className="section" aria-labelledby="phones-title">
+          <div className="container">
+            <div className="section__head">
+              <h2 id="phones-title" className="section__title">
+                Pre-owned phones
+              </h2>
+              <p className="section__lede">
+                Each pre-owned phone is priced on its own model, storage and
+                condition. Tap a phone to get its price and full condition on
+                WhatsApp before you buy.
+              </p>
+            </div>
+            <PhoneGrid />
+          </div>
+        </section>
+      )}
 
       <section className="section section--tint" aria-labelledby="how-price-title">
         <div className="container">

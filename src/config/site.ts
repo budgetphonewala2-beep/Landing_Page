@@ -53,7 +53,7 @@ export const site = {
 
   /** One-line description used for SEO meta description and social previews. */
   description:
-    "BudgetPhoneWala Accessories sells brand-new mobile accessories (chargers, cables, earbuds, phone covers, power banks and smartwatches) from our store in Pandharpur, Maharashtra, with delivery across India.",
+    "BudgetPhoneWala Accessories sells brand-new mobile accessories (chargers, cables, earbuds, phone covers, power banks and smartwatches) and pre-owned iPhones and Samsung phones from our store in Pandharpur, Maharashtra.",
 
   /** Country the business operates in. Used in footer + SEO. */
   country: "India",
@@ -70,7 +70,8 @@ export const site = {
     heading: "A local mobile accessories store in Pandharpur",
     paragraphs: [
       "BudgetPhoneWala Accessories is a retail store in Pandharpur, Maharashtra, that sells everyday mobile accessories: chargers, charging cables, earbuds and earphones, phone covers, power banks and smartwatches.",
-      "Every item we sell is brand-new and comes in its original packaging. We stock accessories for popular Android phones and iPhones, and we help you pick the right charger, cable or cover for your exact phone model.",
+      "Every accessory we sell is brand-new and comes in its original packaging. We stock accessories for popular Android phones and iPhones, and we help you pick the right charger, cable or cover for your exact phone model.",
+      "We also sell pre-owned iPhones and Samsung phones. Each phone is a single unit: we share its condition and price with you on WhatsApp before you buy.",
       "You can shop with us in person at our store, or order on WhatsApp or phone and have your accessories delivered. Every order comes with a bill.",
     ],
     /** Short bullet list under the About copy. Keep these factual. */
@@ -161,6 +162,7 @@ export const site = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/#products" },
+  { label: "Phones", href: "/#phones" },
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact-us" },

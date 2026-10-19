@@ -1366,3 +1366,17 @@ p {
     transform: none;
   }
 }
+
+/* ------------------------------------------------------ pre-owned phones -- */
+
+.product__badge--preowned {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.product__ask {
+  font-size: 1.02rem;
+  font-weight: 650;
+  color: var(--accent-ink);
+}
