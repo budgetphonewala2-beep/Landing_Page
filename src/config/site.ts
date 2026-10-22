@@ -152,7 +152,7 @@ export const site = {
   /** Legal / policy metadata. */
   legal: {
     /** Date shown on policy pages. Update when you edit a policy. */
-    policiesUpdatedOn: "2026-10-19",
+    policiesUpdatedOn: "2026-10-22",
     /** Governing law / jurisdiction, if you want it stated publicly. */
     jurisdiction: "Pandharpur, Maharashtra",
   },
@@ -163,6 +163,7 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/#products" },
   { label: "Phones", href: "/#phones" },
+  { label: "App", href: "/app" },
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact-us" },
@@ -175,6 +176,7 @@ export const policyLinks = [
   { label: "Shipping & Delivery Policy", href: "/shipping-policy" },
   { label: "Cancellation & Refund Policy", href: "/cancellation-refund-policy" },
   { label: "Return & Replacement Policy", href: "/return-policy" },
+  { label: "Delete your account", href: "/delete-account" },
 ] as const;
 
 export type NavLink = (typeof navLinks)[number];

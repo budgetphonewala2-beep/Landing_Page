@@ -44,81 +44,112 @@ export const policies: Policy[] = [
   {
     slug: "/privacy-policy",
     title: "Privacy Policy",
-    summary: `How ${site.name} collects, uses and protects the personal information you share with us when you enquire about or buy mobile accessories.`,
+    summary: `How ${site.name} collects, uses and protects your personal information when you use this website, the BudgetPhonewala mobile app, or buy from our store.`,
     callout:
-      "This website has no user accounts and does not use advertising or third-party tracking cookies. We never see or store your card, UPI PIN or net-banking details.",
+      "We do not sell your personal information, we do not show ads, and we never see or store your card, UPI PIN or net-banking details. You can delete your app account at any time.",
     sections: [
       {
-        heading: "1. Who we are",
+        heading: "1. Who we are and what this policy covers",
         paragraphs: [
-          `This website is run by ${operator}, a mobile accessories store located at ${addressLines().join(", ")}. In this policy, "we", "us" and "our" refer to ${site.name}.`,
+          `This policy is published by ${operator}, a mobile phone and accessories store located at ${addressLines().join(", ")}. In this policy, "we", "us" and "our" refer to ${site.name}.`,
+          `It covers this website, the BudgetPhonewala mobile app for Android and iOS (the "app"), and orders placed with us on WhatsApp, by phone or at the store.`,
         ],
       },
       {
         heading: "2. Information we collect",
-        paragraphs: [
-          "We collect only the information needed to sell and deliver your order. Depending on how you contact us, this can include:",
-        ],
+        paragraphs: ["We collect only what we need to sell, deliver and support your purchase:"],
         bullets: [
-          "Your name.",
-          "Your phone number and email address.",
-          "Your delivery address, including city, state and PIN code.",
-          "Order details: the products you bought, the amount paid and the payment reference.",
-          "Basic technical information such as your IP address and browser type, which our web host may record in server logs for security and troubleshooting.",
+          "Account details (app): your email address and, if you sign up with email, a password. Passwords are stored only as a salted hash by our authentication provider; we cannot read them.",
+          "Google sign-in (app): if you choose \"Continue with Google\", Google shares your name, email address and profile picture with us. We do not receive your Google password or any other data from your Google account.",
+          "Profile and delivery details: your name, mobile number and the delivery addresses you save.",
+          "Orders and payments: the phones or accessories you order, prices, delivery or pickup choice, order status, payment status and the payment reference.",
+          "Cart, wishlist and notification preferences you set in the app.",
+          "Sell or exchange enquiries: the details of the phone you want to sell or exchange, the photos you choose to attach, and the offers we make.",
+          "Warranty and return requests: what you tell us about a problem and our replies.",
+          "App error reports: if the app hits an unexpected error it sends a short report with the app version, platform (Android or iOS), the screen or action that failed and a technical message. Emails, tokens and long numbers are removed before the report is stored.",
+          "Basic technical information such as your IP address and browser type, which our hosting providers may record in server logs for security and troubleshooting.",
         ],
       },
       {
-        heading: "3. How we use your information",
-        paragraphs: [
-          "We use your information to reply to your enquiry, confirm and process your order, arrange delivery, issue your bill, handle returns and refunds, and provide after-sales support.",
-          "We may contact you about your own order. We do not sell or rent your personal information to anyone.",
-        ],
-      },
-      {
-        heading: "4. Payments",
-        paragraphs: [
-          "Online payments are processed by our payment gateway partner (such as Razorpay) on their secure systems. Your card number, CVV, UPI PIN and net-banking password are entered directly with the payment gateway and are never shared with or stored by us. We receive only the payment status and a transaction reference.",
-        ],
-      },
-      {
-        heading: "5. Sharing your information",
-        paragraphs: ["We share your details only where it is necessary to fulfil your order or meet a legal obligation:"],
+        heading: "3. What we do not collect",
         bullets: [
-          "With courier and delivery partners, so that your order can reach you.",
-          "With our payment gateway partner, to process payments and refunds.",
-          "With government or law-enforcement authorities, where we are legally required to do so.",
+          "We do not collect your precise location, contacts, SMS, call history or files.",
+          "The app asks for access to your photos or camera only when you choose to attach a photo to a sell or exchange enquiry.",
+          "We do not use advertising IDs, show ads, or track you across other apps or websites.",
         ],
       },
       {
-        heading: "6. Cookies",
+        heading: "4. How we use your information",
+        bullets: [
+          "To create and secure your account and keep you signed in.",
+          "To process, deliver and support your orders, returns, refunds and warranty claims, and to issue your bill.",
+          "To reply to your enquiries and make offers on phones you want to sell or exchange.",
+          "To send you updates about your own orders and requests. We send marketing messages only if you turn them on, and you can turn them off in the app (Profile > Notification preferences).",
+          "To prevent fraud and misuse, for example by limiting repeated requests.",
+          "To find and fix errors in the app.",
+        ],
+      },
+      {
+        heading: "5. Google user data",
         paragraphs: [
-          "This website does not set advertising cookies and does not run behavioural advertising or cross-site tracking.",
+          "Information received from Google sign-in (name, email address and profile picture) is used only to create your BudgetPhonewala account, sign you in and show your name in the app. It is not sold, not used for advertising, not shared with anyone except the service providers listed below that host our app, and not used for any other purpose.",
+          "Our use of information received from Google APIs follows the Google API Services User Data Policy, including the Limited Use requirements.",
         ],
       },
       {
-        heading: "7. Data retention",
+        heading: "6. Payments",
         paragraphs: [
-          "We keep order and billing records for as long as required by Indian tax and accounting laws (generally up to 8 years). Enquiries that did not lead to an order are deleted within 12 months.",
+          "Online payments are processed by Razorpay on their secure systems. Your card number, CVV, UPI PIN and net-banking password are entered directly with Razorpay and are never shared with or stored by us. We receive only the payment status and a transaction reference. Razorpay may collect payment and device information under its own privacy policy.",
         ],
       },
       {
-        heading: "8. Your rights",
+        heading: "7. Who we share it with",
+        paragraphs: ["We do not sell or rent your personal information. We share it only where needed to run the store and the app:"],
+        bullets: [
+          "Supabase, which hosts our database, sign-in and photo storage (servers in Mumbai, India).",
+          "Razorpay, to process payments and refunds.",
+          "Google, if you choose Google sign-in.",
+          "Courier and delivery partners, who receive your name, address and phone number to deliver your order.",
+          "Government or law-enforcement authorities, where we are legally required to do so.",
+        ],
+      },
+      {
+        heading: "8. Data retention",
+        bullets: [
+          "Account, profile and address details are kept while your account is active.",
+          "Order, payment and billing records are kept for as long as Indian tax and accounting laws require (generally up to 8 years), including after an account is deleted. In that case they are kept without your name and contact details wherever the law allows.",
+          "App error reports are deleted after 90 days.",
+          "Enquiries that did not lead to an order are deleted within 12 months.",
+        ],
+      },
+      {
+        heading: "9. Your choices and rights",
+        bullets: [
+          "Access and correction: view and edit your profile and addresses in the app (Profile).",
+          "Copy of your data: request it in the app (Profile > Privacy and data) or by contacting us.",
+          "Account deletion: delete your account in the app (Profile > Privacy and data) or follow the steps on our Delete your account page. Your name, contact details, addresses, wishlist, cart and enquiry photos are removed or anonymised, and your sign-in is disabled.",
+          "Notifications: change them at any time in the app.",
+          "We respond to privacy requests within 15 days.",
+        ],
+      },
+      {
+        heading: "10. Security",
         paragraphs: [
-          "You can ask us for a copy of the personal information we hold about you, ask us to correct it, or ask us to delete it where we are not legally required to keep it. Contact us using the details below and we will respond within 15 days.",
+          "Data is sent over encrypted connections (HTTPS). Access to customer data is restricted so that each customer can see only their own information, and our staff can see only what their role needs. No system is perfectly secure, but we work to protect your information and fix problems promptly.",
         ],
       },
       {
-        heading: "9. Security",
+        heading: "11. Children",
         paragraphs: [
-          "We take reasonable care to protect your information. No method of transmission over the internet or storage is completely secure, but we limit access to your details to the people who need them to handle your order.",
+          "The app and the store are meant for adults who can enter into a purchase. They are not directed at children under 18, and we do not knowingly collect their information.",
         ],
       },
       {
-        heading: "10. Changes to this policy",
+        heading: "12. Changes to this policy",
         paragraphs: ["We may update this policy from time to time. The date shown at the top of this page reflects the most recent version."],
       },
       {
-        heading: "11. Contact",
+        heading: "13. Contact",
         paragraphs: [contactLine],
       },
     ],
@@ -149,6 +180,15 @@ export const policies: Policy[] = [
         paragraphs: [
           "You can order on WhatsApp, by phone, or in person at our store. An order is confirmed once we have confirmed availability and price to you and payment is received (or, for store pickup, when you pay at the store).",
           "If a product becomes unavailable after you have paid, we will inform you and refund the full amount as described in our Cancellation & Refund Policy.",
+        ],
+      },
+      {
+        heading: "3a. The BudgetPhonewala app",
+        paragraphs: [
+          "You can also browse and buy phones in the BudgetPhonewala mobile app. Browsing needs no account; to save phones, check out or track orders you sign in with email or Google. Keep your sign-in details private and give correct delivery and contact details.",
+          "In the app each pre-owned phone is a single unit. When you start checkout the phone is held for you for a short time; if payment is not completed in that time the hold is released. The final price, delivery charge and any discount are calculated by our server and shown before you pay, and an order is confirmed only after your payment is verified (or, for cash on delivery, accepted by the store).",
+          "An estimate for a phone you want to sell or exchange is not a final offer. The final offer is made after we inspect the phone.",
+          "You can delete your app account at any time, as described in our Privacy Policy.",
         ],
       },
       {

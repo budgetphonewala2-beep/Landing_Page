@@ -1228,12 +1228,17 @@ p {
   margin-top: 10px;
 }
 
-.policy__section ul {
+.policy__section ul,
+.policy__section ol {
   display: grid;
   gap: 8px;
   margin-top: 10px;
   padding-left: 22px;
   list-style: disc;
+}
+
+.policy__section ol {
+  list-style: decimal;
 }
 
 .policy__section li::marker {
