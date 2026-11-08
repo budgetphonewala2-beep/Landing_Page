@@ -152,7 +152,7 @@ export const site = {
   /** Legal / policy metadata. */
   legal: {
     /** Date shown on policy pages. Update when you edit a policy. */
-    policiesUpdatedOn: "2026-10-22",
+    policiesUpdatedOn: "2026-11-08",
     /** Governing law / jurisdiction, if you want it stated publicly. */
     jurisdiction: "Pandharpur, Maharashtra",
   },

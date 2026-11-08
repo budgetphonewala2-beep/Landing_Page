@@ -61,6 +61,7 @@ export const policies: Policy[] = [
         bullets: [
           "Account details (app): your email address and, if you sign up with email, a password. Passwords are stored only as a salted hash by our authentication provider; we cannot read them.",
           "Google sign-in (app): if you choose \"Continue with Google\", Google shares your name, email address and profile picture with us. We do not receive your Google password or any other data from your Google account.",
+          "Sign in with Apple (iPhone app): Apple shares your name (only the first time) and an email address with us. If you choose \"Hide My Email\", we receive an Apple relay address that forwards to you, not your real email.",
           "Profile and delivery details: your name, mobile number and the delivery addresses you save.",
           "Orders and payments: the phones or accessories you order, prices, delivery or pickup choice, order status, payment status and the payment reference.",
           "Cart, wishlist and notification preferences you set in the app.",
@@ -108,7 +109,7 @@ export const policies: Policy[] = [
         bullets: [
           "Supabase, which hosts our database, sign-in and photo storage (servers in Mumbai, India).",
           "Razorpay, to process payments and refunds.",
-          "Google, if you choose Google sign-in.",
+          "Google, if you choose Google sign-in, and Apple, if you choose Sign in with Apple.",
           "Courier and delivery partners, who receive your name, address and phone number to deliver your order.",
           "Government or law-enforcement authorities, where we are legally required to do so.",
         ],
@@ -127,7 +128,7 @@ export const policies: Policy[] = [
         bullets: [
           "Access and correction: view and edit your profile and addresses in the app (Profile).",
           "Copy of your data: request it in the app (Profile > Privacy and data) or by contacting us.",
-          "Account deletion: delete your account in the app (Profile > Privacy and data) or follow the steps on our Delete your account page. Your name, contact details, addresses, wishlist, cart and enquiry photos are removed or anonymised, and your sign-in is disabled.",
+          "Account deletion: delete your account in the app (Profile > Privacy and data) or follow the steps on our Delete your account page. Your name, contact details, addresses, wishlist, cart and enquiry photos are removed or anonymised, and your sign-in, including the link to your Google or Apple account, is disabled.",
           "Notifications: change them at any time in the app.",
           "We respond to privacy requests within 15 days.",
         ],
