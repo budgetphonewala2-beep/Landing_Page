@@ -128,7 +128,7 @@ export const policies: Policy[] = [
         bullets: [
           "Access and correction: view and edit your profile and addresses in the app (Profile).",
           "Copy of your data: request it in the app (Profile > Privacy and data) or by contacting us.",
-          "Account deletion: delete your account in the app (Profile > Privacy and data) or follow the steps on our Delete your account page. Your name, contact details, addresses, wishlist, cart and enquiry photos are removed or anonymised, and your sign-in, including the link to your Google or Apple account, is disabled.",
+          "Account deletion: delete your account in the app at any time (Profile > Delete account); it is deleted immediately. You can also follow the steps on our Delete your account page. Your name, contact details, addresses, wishlist, cart and enquiry photos are removed or anonymised, and your sign-in, including the link to your Google or Apple account, is disabled.",
           "Notifications: change them at any time in the app.",
           "We respond to privacy requests within 15 days.",
         ],

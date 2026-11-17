@@ -31,8 +31,8 @@ export default function DeleteAccountPage() {
         <h2 className="policy__heading">Option 1: in the app</h2>
         <ol>
           <li>Open the BudgetPhonewala app and sign in.</li>
-          <li>Go to Profile &gt; Privacy and data.</li>
-          <li>Under &quot;Delete my account&quot;, tap Request account deletion and confirm.</li>
+          <li>Go to Profile and tap Delete account (also available under Profile &gt; Privacy and data).</li>
+          <li>Tap Delete account and confirm. Your account is deleted immediately and you are signed out.</li>
         </ol>
       </section>
 
@@ -70,8 +70,8 @@ export default function DeleteAccountPage() {
       <section className="policy__section">
         <h2 className="policy__heading">How long it takes</h2>
         <p>
-          We complete deletion requests within 30 days, usually much sooner. If you have an open order, return or warranty
-          claim, we may contact you to settle it first.
+          In the app, deletion happens immediately. Requests sent by email or phone are completed within 30 days, usually much
+          sooner. If you have an open order, return or warranty claim, it continues to be handled without your personal details.
         </p>
       </section>
 
