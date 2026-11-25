@@ -29,6 +29,8 @@ const FEATURES = [
   { icon: ChatIcon, title: "Sell or exchange your phone", body: "Send the details and photos of your old phone and get an offer from the store." },
 ];
 
+const APP_STORE_URL = "https://apps.apple.com/in/app/budgetphonewala/id6832192441";
+
 export default function AppPage() {
   return (
     <>
@@ -69,7 +71,7 @@ export default function AppPage() {
             <div className="section__lede">
               <p>
                 Browsing the app needs no account. You sign in only to save phones, check out and track your orders. You
-                can sign in with your email and a password, or with your Google account.
+                can sign in with your email and a password, with your Google account, or on iPhone with Sign in with Apple.
               </p>
               <p>
                 When you use Google sign-in, Google shares your name, email address and profile picture with us. We use
@@ -77,7 +79,7 @@ export default function AppPage() {
                 sell your data, we do not show ads, and card or UPI details are handled by Razorpay and never reach us.
               </p>
               <p>
-                You can delete your account at any time in the app (Profile &gt; Privacy and data) or by following the
+                You can delete your account at any time in the app (Profile &gt; Delete account) or by following the
                 steps on our <Link href="/delete-account">Delete your account</Link> page.
               </p>
             </div>
@@ -95,12 +97,15 @@ export default function AppPage() {
             <div>
               <h2 id="get-title" className="contact-panel__title">Getting the app</h2>
               <p className="contact-panel__text">
-                The app is in testing on Google Play and will be available to everyone soon. Until then you can see our
-                phones and order on WhatsApp or at the store.
+                The iPhone app is available now on the App Store. The Android app is in testing on Google Play and will be
+                available to everyone soon. You can also see our phones and order on WhatsApp or at the store.
               </p>
               <div className="btn-row">
+                <a href={APP_STORE_URL} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                  Download on the App Store
+                </a>
                 {hasWhatsApp && (
-                  <a href={whatsappHref(site.contact.whatsapp, WHATSAPP_ENQUIRY)} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                  <a href={whatsappHref(site.contact.whatsapp, WHATSAPP_ENQUIRY)} className="btn btn--secondary" target="_blank" rel="noopener noreferrer">
                     <MessageIcon size={18} />
                     Chat on WhatsApp
                   </a>
