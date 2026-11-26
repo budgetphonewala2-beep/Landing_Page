@@ -30,6 +30,7 @@ const FEATURES = [
 ];
 
 const APP_STORE_URL = "https://apps.apple.com/in/app/budgetphonewala/id6832192441";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=in.budgetphonewala.app";
 
 export default function AppPage() {
   return (
@@ -97,10 +98,13 @@ export default function AppPage() {
             <div>
               <h2 id="get-title" className="contact-panel__title">Getting the app</h2>
               <p className="contact-panel__text">
-                The iPhone app is available now on the App Store. The Android app is in testing on Google Play and will be
-                available to everyone soon. You can also see our phones and order on WhatsApp or at the store.
+                The app is available now on Google Play for Android phones and on the App Store for iPhone. You can also see
+                our phones and order on WhatsApp or at the store.
               </p>
               <div className="btn-row">
+                <a href={PLAY_STORE_URL} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                  Get it on Google Play
+                </a>
                 <a href={APP_STORE_URL} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
                   Download on the App Store
                 </a>
